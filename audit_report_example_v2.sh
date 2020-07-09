@@ -157,9 +157,10 @@ for mounted in $(vault_curl --request GET $VAULT_ADDR/v1/sys/auth|jq '.data | ke
         if echo "$mounted"|grep -q userpass
 	then
         	userpass $1 $mounted
-	elif echo "$mounted"|grep -q ldap
-	then
-		ldap $1 $mounted
+	#LDAP NEEDS REVIEW
+	#elif echo "$mounted"|grep -q ldap
+	#then
+	#	ldap $1 $mounted
 	elif echo "$mounted"|grep -q token
 	then
 		token $1 $mounted
